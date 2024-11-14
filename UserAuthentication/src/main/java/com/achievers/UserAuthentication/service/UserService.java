@@ -81,4 +81,90 @@ public class UserService implements UserDetailsService {
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Customer registered successfully");
     }
+
+    public ResponseEntity<String> updateAdmin(String uid, RegisterRequestDto registerRequestDto) {
+        Admins admin = (Admins) adminRepository.findByUid(uid).orElse(null);
+        if (admin == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin not found");
+        }
+
+        admin.setFullName(registerRequestDto.getFullName());
+        admin.setAddress(registerRequestDto.getAddress());
+        admin.setEmailId(registerRequestDto.getEmailId());
+        admin.setMobileNumber(registerRequestDto.getMobileNumber());
+        admin.setAge(registerRequestDto.getAge());
+        admin.setGender(registerRequestDto.getGender());
+        adminRepository.save(admin);
+
+        Users user = usersRepository.findById(uid).orElse(null);
+        if (user != null) {
+            user.setUsername(registerRequestDto.getEmailId());
+            user.setHashedPassword(passwordEncoder.encode(registerRequestDto.getPassword()));
+            usersRepository.save(user);
+        }
+
+        return ResponseEntity.ok("Admin updated successfully");
+    }
+
+    public ResponseEntity<String> updateCustomer(String uid, RegisterRequestDto registerRequestDto) {
+        Customers customer = (Customers) customerRepository.findByUid(uid).orElse(null);
+        if (customer == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found");
+        }
+
+        customer.setFullName(registerRequestDto.getFullName());
+        customer.setAddress(registerRequestDto.getAddress());
+        customer.setEmailId(registerRequestDto.getEmailId());
+        customer.setMobileNumber(registerRequestDto.getMobileNumber());
+        customer.setAge(registerRequestDto.getAge());
+        customer.setGender(registerRequestDto.getGender());
+        customerRepository.save(customer);
+
+        Users user = usersRepository.findById(uid).orElse(null);
+        if (user != null) {
+            user.setUsername(registerRequestDto.getEmailId());
+            user.setHashedPassword(passwordEncoder.encode(registerRequestDto.getPassword()));
+            usersRepository.save(user);
+        }
+
+        return ResponseEntity.ok("Customer updated successfully");
+    }
+
+    public ResponseEntity<String> deleteAdmin(String uid) {
+        if (!adminRepository.existsByUid(uid)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Admin not found");
+        }
+
+        adminRepository.deleteById(uid);
+        usersRepository.deleteById(uid);
+        return ResponseEntity.ok("Admin deleted successfully");
+    }
+
+    public ResponseEntity<String> deleteCustomer(String uid) {
+        if (!customerRepository.existsByUid(uid)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found");
+        }
+
+        customerRepository.deleteById(uid);
+        usersRepository.deleteById(uid);
+        return ResponseEntity.ok("Customer deleted successfully");
+    }
+
+    public ResponseEntity<Admins> getAdminById(String uid) {
+        Admins admin = (Admins) adminRepository.findByUid(uid).orElse(null);
+        if (admin == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(admin);
+    }
+
+    public ResponseEntity<Customers> getCustomerById(String uid) {
+        Customers customer = (Customers) customerRepository.findByUid(uid).orElse(null);
+        if (customer == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(customer);
+    }
+
+
 }
