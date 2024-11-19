@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+  <div class="register-container">
+    <h2>ADMIN REGISTRATION</h2>
+    <form [formGroup]="adminRegisterForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" formControlName="fullName" type="text" placeholder="Enter Full Name">
+        <div *ngIf="adminRegisterForm.get('fullName')?.invalid && adminRegisterForm.get('fullName')?.touched">
+          <small *ngIf="adminRegisterForm.get('fullName')?.errors?.['required']">Full name is required</small>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input id="address" formControlName="address" type="text" placeholder="Enter Address">
+        <div *ngIf="adminRegisterForm.get('address')?.invalid && adminRegisterForm.get('address')?.touched">
+          <small *ngIf="adminRegisterForm.get('address')?.errors?.['required']">Address is required</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number</label>
+        <input id="mobileNumber" formControlName="mobileNumber" type="text" placeholder="Enter Mobile Number">
+        <div *ngIf="adminRegisterForm.get('mobileNumber')?.invalid && adminRegisterForm.get('mobileNumber')?.touched">
+          <small *ngIf="adminRegisterForm.get('mobileNumber')?.errors?.['required']">Mobile number is required</small>
+          <small *ngIf="adminRegisterForm.get('mobileNumber')?.errors?.['pattern']">Must be a 10-digit number</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="emailId" type="email" placeholder="Enter Email">
+        <div *ngIf="adminRegisterForm.get('emailId')?.invalid && adminRegisterForm.get('emailId')?.touched">
+          <small *ngIf="adminRegisterForm.get('emailId')?.errors?.['required']">Email is required</small>
+          <small *ngIf="adminRegisterForm.get('emailId')?.errors?.['email']">Invalid email format</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" placeholder="Enter Password">
+        <div *ngIf="adminRegisterForm.get('password')?.invalid && adminRegisterForm.get('password')?.touched">
+          <small *ngIf="adminRegisterForm.get('password')?.errors?.['required']">Password is required</small>
+          <small *ngIf="adminRegisterForm.get('password')?.errors?.['minlength']">Minimum 8 characters required</small>
+          <small *ngIf="adminRegisterForm.get('password')?.errors?.['pattern']">
+            Password must contain at least 1 uppercase letter, 1 number, and 1 special character
+          </small>
+        </div>
+      </div>
+
+      
+      
+      <div class="form-group age-gender-group">
+        <div class="age-group">
+          <label for="age">Age</label> <br>
+          <input id="age" formControlName="age" type="number" placeholder="Age">
+          <div *ngIf="adminRegisterForm.get('age')?.invalid && adminRegisterForm.get('age')?.touched">
+            <small *ngIf="adminRegisterForm.get('age')?.errors?.['required']">Age is required</small>
+            <small *ngIf="adminRegisterForm.get('age')?.errors?.['min']">Must be at least 10</small>
+          </div>
+        </div>
+        
+        <div class="gender-group">
+          <label for="gender">Gender</label> <br>
+          <select id="gender" formControlName="gender">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <div *ngIf="adminRegisterForm.get('gender')?.invalid && adminRegisterForm.get('gender')?.touched">
+            <small *ngIf="adminRegisterForm.get('gender')?.errors?.['required']">Gender is required</small>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="adminRegisterForm.invalid" class="submit-btn">Sign Up</button>
+    </form>
+  </div>
+</div>

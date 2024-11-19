@@ -1,0 +1,142 @@
+
+*,
+*::before,
+*::after {
+  font-family: 'Roboto', sans-serif; 
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif; 
+  background: linear-gradient(135deg, #f7f3f0, #e7ded7); 
+  color: #333; 
+  transition: background 0.5s ease; 
+}
+
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.forgot-password-container {
+  width: 500px;
+  padding: 2em;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+  background-color: #fef4e4; 
+  border-radius: 12px;
+  text-align: center;
+  transition: background 0.5s ease; 
+}
+
+
+.logo {
+  width: 120px;             
+  height: auto;             
+  margin-bottom: 1em;       
+}
+
+
+.form-group {
+  margin-bottom: 20px;      
+  margin-top: 15px;         
+  text-align: left;         
+}
+
+
+label {
+  font-weight: 500;         
+  display: block;
+  margin-bottom: 0.5em;
+  color: #5b423b;           
+  font-size: 1rem;
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 12px;             
+  margin-top: 8px;           
+  border: 1px solid #ccc;   
+  border-radius: 4px;       
+  font-size: 1em;
+  background-color: #f7f7f7; 
+  transition: border 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.form-control:focus {
+  border-color: #5b423b;    
+  outline: none;            
+  box-shadow: 0 0 0 2px rgba(91, 66, 59, 0.2); 
+}
+
+
+.btn-login {
+  width: 100%;              
+  padding: 12px;            
+  background-color: #5b423b; 
+  color: white;              
+  border: none;             
+  cursor: pointer;         
+  font-size: 1em;           
+  border-radius: 5px;       
+  margin-top: 1em;          
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+
+.btn-login:hover {
+  background-color: #3e2a1f; 
+  transform: scale(1.05);     
+}
+
+
+.btn-login:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+.error-message {
+  color: #ff4d4d; 
+  font-size: 0.875em;
+  margin-top: 0.25em;
+}
+
+.error-message small {
+  display: block;
+}
+
+
+.links {
+  margin-top: 1em;
+}
+
+.links a {
+  display: block;
+  color: #5b423b;           
+  text-decoration: none;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+  transition: color 0.3s ease; 
+}
+
+.links a:hover {
+  color: #3e2a1f;           
+  text-decoration: underline; 
+}
+
+
+@media (max-width: 500px) {
+  .forgot-password-container {
+    width: 90%;              
+  }
+}

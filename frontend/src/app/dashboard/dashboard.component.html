@@ -1,0 +1,64 @@
+<div *ngIf="isLoggingIn" class="loading-spinner"></div>
+<div *ngIf="!isLoggingIn">
+<div class="dashboard-container">
+  <header class="navbar">
+    <div class="logo">Circle Tech</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button mat-button class="profile-button" (click)="openProfileDialog()">Profile</button>
+      <button mat-button class="logout-button" (click)="logout()">Logout</button>
+    </div>
+  </header>
+ </div> 
+
+
+<div>
+  <div class="user-section">
+    <h2>Welcome, {{ userName }}</h2>
+  </div>
+
+  <div class="promotions">
+    <h3>Special Offers for You</h3>
+    <div class="promotion-card" *ngFor="let promo of promotions">
+      <img [src]="promo.image" alt="Promo Image" class="promo-image" />
+      <h4>{{ promo.title }}</h4>
+      <p>{{ promo.description }}</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 
+<ng-template #profileDialogTemplate>
+  <h2 mat-dialog-title>User Profile</h2>
+  <div mat-dialog-content>
+    <p><strong>Name:</strong> {{ userDetails.name }}</p>
+    <p><strong>Email:</strong> {{ userDetails.email }}</p>
+    <p><strong>Phone:</strong> {{ userDetails.phone }}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</ng-template> -->
+
+<div class="custom-modal" *ngIf="isProfileDialogOpen">
+  <div class="modal-content">
+    <h2>User Profile</h2>
+    <p><strong>Name:</strong> {{ userDetails.fullName }}</p>
+    <p><strong>Email:</strong> {{ userDetails.emailId }}</p>
+    <p><strong>Address:</strong> {{ userDetails.address }}</p>
+    <p><strong>Phone:</strong> {{ userDetails.mobileNumber }}</p>
+    <p><strong>Age:</strong> {{ userDetails.age }}</p>
+    <p><strong>Gender:</strong> {{ userDetails.gender }}</p>
+    <div class="modal-actions">
+      <button (click)="closeProfileDialog()">Close</button>
+    </div>
+  </div>
+</div>
+

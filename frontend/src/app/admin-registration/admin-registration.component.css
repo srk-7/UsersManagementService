@@ -1,0 +1,108 @@
+body {
+    background-color: #f5e1b3; 
+    color: #5b423b; 
+    font-family: 'Georgia', serif; 
+    position: relative;
+    overflow-x: hidden; 
+  }
+  
+  
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 20px; 
+    background: linear-gradient(180deg, #f5e1b3, #e7ded7); 
+    transition: background 0.5s ease; 
+    box-sizing: border-box; 
+  }
+  
+  
+  .register-container {
+    max-width: 600px; 
+    width: 100%; 
+    padding: 20px 30px; 
+    background: linear-gradient(135deg, #f7f3f0, #e7ded7); 
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); 
+    transition: background 0.5s ease; 
+    min-height: 400px; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+  }
+  
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #5b423b;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button.submit-btn {
+    background-color: #5b423b; 
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button.submit-btn:hover:not(:disabled) {
+    background-color: #3e2a1f; 
+    transform: scale(1.05);
+  }
+  
+  small {
+    color: #ff4d4d;
+    font-size: 12px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .register-container {
+      max-width: 90%; 
+      min-height: auto; 
+    }
+  }
+  
+  
+  
+  
+  
+  .age-gender-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .age-group input {
+    width: 200px;
+  }
+  
+  .gender-group select {
+    width: 180px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

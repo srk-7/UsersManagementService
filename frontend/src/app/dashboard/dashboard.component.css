@@ -1,0 +1,159 @@
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.navbar {
+  display: flex;
+  font-family: Arial, sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3d3d3d;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.dashboard-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+
+  background-color: #fafafa; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-button,
+.logout-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.profile-button:hover,
+.logout-button:hover {
+  background-color: #555;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.promotions {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.promotions h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.promotion-card {
+  display: inline-block;
+  width: 180px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promo-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.promotion-card h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0 5px;
+}
+
+.promotion-card p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* dashboard.component.css */
+
+/* Overlay for the modal */
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Modal action buttons */
+.modal-actions {
+  margin-top: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+
